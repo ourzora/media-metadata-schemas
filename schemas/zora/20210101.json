@@ -1,0 +1,51 @@
+{
+    "description": "This schema describes version 20210101 of the Zora Metadata Standard",
+    "title": "Zora Metadata",
+    "$id": "http://zora.co/schemas/ZoraMetadata.json",
+    "type": "object",
+    "properties": {
+        "description": {
+            "description": "The description of the media",
+            "examples": [
+                "This paper describes protocol to create, share and exchange universally accessible and valuable information on the internet."
+            ],
+            "type": "string"
+        },
+        "mimeType": {
+            "description": "The mimeType of the media",
+            "examples": [
+                "text/plain"
+            ],
+            "type": "string"
+        },
+        "name": {
+            "description": "This property is the name of the Media",
+            "examples": [
+                "Zora Whitepaper"
+            ],
+            "type": "string"
+        },
+        "version": {
+            "description": "This property defines the calendar version of the schema so that consumers can correctly parse the json",
+            "examples": [
+                "zora-20210101"
+            ],
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": [
+        {
+            "version": "zora-20210101",
+            "name": "Zora Whitepaper",
+            "description": "This paper describes protocol to create, share and exchange universally accessible and valuable information on the internet.",
+            "mimeType": "text/plain"
+        }
+    ],
+    "required": [
+        "version",
+        "name",
+        "description",
+        "mimeType"
+    ]
+}
