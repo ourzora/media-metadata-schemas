@@ -1,5 +1,4 @@
-import { expect } from 'chai'
-import { Validator } from "../src/Validator";
+import { Validator } from "../src/validator";
 
 describe("schemas", () => {
     describe("zora", () => {
@@ -13,7 +12,7 @@ describe("schemas", () => {
                 }
 
                 const result = validator.validate(json);
-                expect(result).eq(false);
+                expect(result).toBe(false);
             })
 
             it("does not allow additional properties", () => {
@@ -27,7 +26,7 @@ describe("schemas", () => {
                 }
 
                 const result = validator.validate(json);
-                expect(result).eq(false);
+                expect(result).toBe(false);
             })
 
             it("requires string values", () => {
@@ -40,7 +39,7 @@ describe("schemas", () => {
                 }
 
                 const result = validator.validate(json);
-                expect(result).eq(false);
+                expect(result).toBe(false);
             })
 
             it("validates a valid schema", () => {
@@ -53,7 +52,7 @@ describe("schemas", () => {
                 }
 
                 const result = validator.validate(json);
-                expect(result).eq(true);
+                expect(result).toBe(true);
             })
 
         })

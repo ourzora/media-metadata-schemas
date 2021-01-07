@@ -1,6 +1,6 @@
 {
     "description": "This schema describes version 20210101 of the Zora Metadata Standard",
-    "title": "Zora Metadata",
+    "title": "Zora20210101",
     "$id": "http://zora.co/schemas/ZoraMetadata.json",
     "type": "object",
     "properties": {
