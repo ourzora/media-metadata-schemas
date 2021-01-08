@@ -1,6 +1,6 @@
 {
   "name": "@zoralabs/media-metadata-schemas",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "typings": "dist/src/index.d.ts",
   "files": [
