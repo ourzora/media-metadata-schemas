@@ -1,6 +1,6 @@
 {
   "name": "@zoralabs/media-metadata-schemas",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "typings": "dist/src/index.d.ts",
   "files": [
@@ -32,7 +32,7 @@
     "trash-cli": "^4.0.0",
     "ts-jest": "^26.4.4"
   },
-  "description": "## Usage",
+  "description": "Library for Defining and Interacting with Zora Media Metadata Schemas",
   "bugs": {
     "url": "https://github.com/ourzora/media-metadata-schemas/issues"
   },
