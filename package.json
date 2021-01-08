@@ -6,11 +6,13 @@
   "files": [
     "dist"
   ],
-  "repository": "git@github.com:ourzora/media-metadata-schemas.git",
-  "author": "<b@ourzora.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ourzora/media-metadata-schemas.git"
+  },
+  "author": " <b@ourzora.com>",
+  "license": "UNLICENSED",
   "scripts": {
-    "lint": "yarn eslint",
     "clean": "trash dist",
     "build": "yarn clean && tsc",
     "test": "jest",
@@ -29,5 +31,13 @@
     "json-schema-to-typescript": "^10.1.1",
     "trash-cli": "^4.0.0",
     "ts-jest": "^26.4.4"
+  },
+  "description": "## Usage",
+  "bugs": {
+    "url": "https://github.com/ourzora/media-metadata-schemas/issues"
+  },
+  "homepage": "https://github.com/ourzora/media-metadata-schemas#readme",
+  "directories": {
+    "test": "tests"
   }
 }
