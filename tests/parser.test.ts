@@ -6,7 +6,7 @@ describe("Validator", () => {
         it("raises when an unsupported schema version is specified", () => {
             expect(() => {
                 new Parser("zora-20190101")
-            }).toThrow("There are no versions with the 20190101 calendar version")
+            }).toThrow("There are no versions in the zora namespace with the 20190101 calendar version")
 
             expect(() => {
                 new Parser("coinbase-20190101")
@@ -26,7 +26,7 @@ describe("Validator", () => {
 
             const result = validator.parse(JSON.stringify(json));
             expect(isZora20210101(result)).toBe(true);
-            expect(result).toBe(json)
+            expect(result).toMatchObject(json)
         });
     })
 });
