@@ -26,6 +26,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "tests"],
+  "include": ["./src", "./types", "./schemas/**/*"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@zoralabs/media-metadata-schemas",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "typings": "dist/src/index.d.ts",
   "files": [
@@ -14,7 +14,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "clean": "trash dist",
-    "build": "yarn clean && tsc",
+    "build": "yarn clean && tsc && cp -R schemas dist",
     "test": "jest",
     "codegen": "json2ts -i schemas/ -o types/"
   },
