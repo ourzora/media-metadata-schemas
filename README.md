@@ -4,6 +4,28 @@
 
 ## Tests
 
+
+## Validate
+
+## Generate
+
+## Parse
+
+```
+const version = media.getMetadataversion()
+const parsedMetadata = parser.parse(version, media.metadata)
+
+switch typeOf(parsedMetadata) {
+    case 'Zora20210101': {
+        // custom handling for Zora
+    }
+        
+    case 'Mirror20210101': {
+        // custom handling for Mirror
+    }
+}
+```
+
 ## Define a New Schema
 
 To define a new schema version, locate the directory of your projects name in `schemas/`. If a directory does not already exist create one. 

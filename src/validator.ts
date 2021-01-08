@@ -1,4 +1,5 @@
 import { Validator as JsonValidator } from 'jsonschema';
+import {validateVersion} from "./versions";
 
 export class Validator {
     public name: string;
@@ -6,8 +7,9 @@ export class Validator {
 
     constructor(version: string){
         // require version <name>-<calver>
-        const [name, calVer] = version.split("-");
+        validateVersion(version);
 
+        const [name, calVer] = version.split("-");
         this.name = name
         this.calVer = calVer;
     }

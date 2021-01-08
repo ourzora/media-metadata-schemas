@@ -1,8 +1,19 @@
-import { expect } from 'chai'
-import { Validator } from "../src/Validator";
+import { Validator } from "../src/validator";
 
 describe("Validator", () => {
-    describe("validate", () => {
+    describe("#constructor", () => {
+        it("raises when an unsupported schema version is specified", () => {
+            expect(() => {
+                new Validator("zora-20190101")
+            }).toThrow("There are no versions with the 20190101 calendar version")
+
+            expect(() => {
+                new Validator("coinbase-20190101")
+            }).toThrow("There are no versions with the coinbase project name")
+        })
+    })
+    
+    describe("#validate", () => {
         it("it returns true if the schema is correct", () => {
             const validator = new Validator("zora-20210101");
             const json = {
@@ -13,7 +24,7 @@ describe("Validator", () => {
             }
 
             const result = validator.validate(json);
-            expect(result).eq(true);
+            expect(result).toBe(true);
         });
 
         it("it returns false if the schema is incorrect", () => {
@@ -27,7 +38,7 @@ describe("Validator", () => {
             }
 
             const result = validator.validate(json);
-            expect(result).eq(false);
+            expect(result).toBe(false);
         });
     })
 });
