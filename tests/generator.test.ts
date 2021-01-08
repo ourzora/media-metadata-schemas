@@ -5,7 +5,7 @@ describe("Generator", () => {
         it("raises when an unsupported schema version is specified", () => {
             expect(() => {
                 new Generator("zora-20190101")
-            }).toThrow("There are no versions with the 20190101 calendar version")
+            }).toThrow("There are no versions in the zora namespace with the 20190101 calendar version")
 
             expect(() => {
                 new Generator("coinbase-20190101")

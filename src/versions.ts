@@ -18,7 +18,7 @@ export function validateVersion(verboseVersion: string): void {
 
     // require calVer exists in `versions`
     if(supportedVersions[name].indexOf(calVer) == -1){
-        throw new Error(`There are no versions with the ${calVer} calendar version`);
+        throw new Error(`There are no versions in the ${name} namespace with the ${calVer} calendar version`);
     }
 
     return;
