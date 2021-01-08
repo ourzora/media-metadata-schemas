@@ -14,7 +14,7 @@ export class Validator {
         this.calVer = calVer;
     }
 
-    public validate(json: Object): boolean {
+    public validate(json: { [key: string]: {} }): boolean {
         const jsonValidator = new JsonValidator();
         const schema = require(`../schemas/${this.name}/${this.calVer}.json`)
         return jsonValidator.validate(json, schema).valid;
