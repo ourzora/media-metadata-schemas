@@ -1,7 +1,7 @@
 import { Parser } from "../src/parser";
 import {Zora20210101} from '../types/types'
 
-describe("Validator", () => {
+describe("Parser", () => {
     describe("#constructor", () => {
         it("raises when an unsupported schema version is specified", () => {
             expect(() => {
@@ -15,8 +15,8 @@ describe("Validator", () => {
     })
 
     describe("#parse", () => {
-        it("it returns true if the schema is correct", () => {
-            const validator = new Parser("zora-20210101");
+        it("it parses the metadata", () => {
+            const parser = new Parser("zora-20210101");
             const json = {
                 "description": "blah",
                 "mimeType": "application/json",
@@ -24,7 +24,7 @@ describe("Validator", () => {
                 "version": "zora-01012021",
             }
 
-            const result = validator.parse(JSON.stringify(json));
+            const result = parser.parse(JSON.stringify(json));
             expect(isZora20210101(result)).toBe(true);
             expect(result).toMatchObject(json)
         });
