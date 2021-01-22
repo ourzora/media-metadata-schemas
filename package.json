@@ -16,7 +16,8 @@
     "clean": "trash dist",
     "build": "yarn clean && tsc && cp -R schemas dist",
     "test": "jest",
-    "codegen": "json2ts -i schemas/ -o types/"
+    "codegen": "json2ts -i schemas/ -o types/",
+    "prepublish": "yarn codegen && yarn build"
   },
   "dependencies": {
     "@types/jsonschema": "^1.1.1",
