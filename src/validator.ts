@@ -1,22 +1,26 @@
-import { Validator as JsonValidator } from 'jsonschema';
-import {validateVersion} from "./versions";
+import { Validator as JsonValidator } from 'jsonschema'
+import { validateVersion } from './versions'
 
 export class Validator {
-    public name: string;
-    public calVer: string;
+  public name: string
+  public calVer: string
 
-    constructor(version: string){
-        // require version <name>-<calver>
-        validateVersion(version);
+  constructor(version: string) {
+    // require version <name>-<calver>
+    validateVersion(version)
 
-        const [name, calVer] = version.split("-");
-        this.name = name
-        this.calVer = calVer;
-    }
+    const [name, calVer] = version.split('-')
+    this.name = name
+    this.calVer = calVer
+  }
 
-    public validate(json: { [key: string]: {} }): boolean {
-        const jsonValidator = new JsonValidator();
-        const schema = require(`../schemas/${this.name}/${this.calVer}.json`)
-        return jsonValidator.validate(json, schema).valid;
-    }
+  /**
+   *
+   * @param json
+   */
+  public validate(json: { [key: string]: {} }): boolean {
+    const jsonValidator = new JsonValidator()
+    const schema = require(`../schemas/${this.name}/${this.calVer}.json`)
+    return jsonValidator.validate(json, schema).valid
+  }
 }
