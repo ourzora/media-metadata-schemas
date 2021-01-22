@@ -14,6 +14,7 @@ export class Parser {
   }
 
   /**
+   * Parses the JSON string
    *
    * @param json
    */

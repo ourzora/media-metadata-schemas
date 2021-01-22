@@ -14,10 +14,12 @@ export class Generator {
   }
 
   /**
+   * Generates valid, minfied, and ordered (alphabetized keys) schema
+   * Raises if the unordered json does not Validate against the Generator's schema
    *
    * @param unordered
    */
-  public generateJSON(unordered: { [key: string]: {} }): string {
+  public generateJSON(unordered: { [key: string]: any }): string {
     // validate the schema
     const version = this.name.concat('-').concat(this.calVer)
     const validator = new Validator(version)

@@ -15,10 +15,11 @@ export class Validator {
   }
 
   /**
+   * Validates the passed json against the Validator's schema
    *
    * @param json
    */
-  public validate(json: { [key: string]: {} }): boolean {
+  public validate(json: { [key: string]: any }): boolean {
     const jsonValidator = new JsonValidator()
     const schema = require(`../schemas/${this.name}/${this.calVer}.json`)
     return jsonValidator.validate(json, schema).valid
