@@ -2,7 +2,8 @@
  *
  */
 export const supportedVersions: { [key: string]: Array<string> } = {
-  zora: ['20210101']
+  zora: ['20210101'],
+  catalog: ['20210202']
 }
 
 /**
@@ -13,6 +14,9 @@ export const supportedVersionsTypeMapping: {
 } = {
   zora: {
     '20210101': 'Zora20210101'
+  },
+  catalog: {
+    '20210202': 'Catalog20210202'
   }
 }
 
