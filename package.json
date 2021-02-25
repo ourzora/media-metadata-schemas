@@ -14,7 +14,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "clean": "trash dist",
-    "build": "yarn clean && tsc && cp -R schemas dist",
+    "build": "yarn clean && tsc && cp -R schemas dist && cpy types/**/*.d.ts dist --no-overwrite --parents",
     "test": "jest",
     "codegen": "json2ts -i schemas/ -o types/",
     "prepublish": "yarn codegen && yarn build"
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
+    "cpy-cli": "^3.1.1",
     "jest": "^26.6.3",
     "json-schema-to-typescript": "^10.1.1",
     "trash-cli": "^4.0.0",
