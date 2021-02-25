@@ -1,0 +1,69 @@
+{
+    "description": "This schema describes version 20210221 of the metadata standard for the amulet poem format, designed for the Zora protocol.",
+    "title": "Amulet20210221",
+    "$id": "http://text.bargains/schema.json",
+    "type": "object",
+    "properties": {
+        "description": {
+            "description": "The description of the amulet, which should include at minimum (1) a link to the current formal definition and (2) a link to the carbon offset purchased in the poem's name.",
+            "examples": [
+                "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is <rarity>. Here is this poem's carbon offset: <link>"
+            ],
+            "type": "string"
+        },
+        "mimeType": {
+            "description": "The mimeType of the amulet. This will always be text/plain.",
+            "examples": [
+                "text/plain"
+            ],
+            "type": "string"
+        },
+        "name": {
+            "description": "The title of the amulet.",
+            "examples": [
+                "morning amulet"
+            ],
+            "type": "string"
+        },
+        "poem": {
+            "description": "The text of the amulet. You should include this if possible, but it's not formally required. The text at the contentURI in the Zora NFT is considered the canonical version.",
+            "examples": [
+                "DON'T WORRY."
+            ],
+            "type": "string"
+        },
+        "rarity": {
+            "description": "The rarity level of the amulet.",
+            "examples": [
+                "common"
+            ],
+            "type": "string",
+            "enum": ["common", "uncommon", "rare", "epic", "legencary", "mythic", "beyond mythic"]
+        },
+        "version": {
+            "description": "The calendar version of the schema.",
+            "examples": [
+                "amulet-20210101"
+            ],
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": [
+        {
+            "version": "amulet-20210221",
+            "name": "morning amulet",
+            "poem": "DON'T WORRY.",
+            "description": "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is COMMON. Here is this poem's carbon offset: <link>",
+            "rarity": "common",
+            "mimeType": "text/plain"
+        }
+    ],
+    "required": [
+        "version",
+        "name",
+        "description",
+        "rarity",
+        "mimeType"
+    ]
+}

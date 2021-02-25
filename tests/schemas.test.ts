@@ -279,7 +279,7 @@ describe('schemas', () => {
         const result = validator.validate(json)
         expect(result).toBe(false)
       })
-      
+
       it('requires the correct Catalog schema version', () => {
         const validator = new Validator('catalog-20210202')
         const json = {
@@ -436,4 +436,36 @@ describe('schemas', () => {
       })
     })
   })
+
+  describe('amulet', () => {
+    describe('20210221', () => {
+      it('requires all keys', () => {
+        const validator = new Validator('amulet-20210221')
+        const json = {
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'text/plain',
+          name: 'a fine amulet',
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('cannot be assigned a random rarity', () => {
+        const validator = new Validator('amulet-20210221')
+        const json = {
+          version: 'amulet-20210221',
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'text/plain',
+          name: 'a fine amulet',
+          rarity: 'hyperrare'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+    })
+  })
+
 })
