@@ -38,7 +38,7 @@
                 "common"
             ],
             "type": "string",
-            "enum": ["common", "uncommon", "rare", "epic", "legencary", "mythic", "beyond mythic"]
+            "enum": ["common", "uncommon", "rare", "epic", "legendary", "mythic", "beyond mythic"]
         },
         "version": {
             "description": "The calendar version of the schema.",
