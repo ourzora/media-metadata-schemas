@@ -6,13 +6,13 @@
  */
 
 /**
- * This schema describes version 20210221 of the metadata standard for the amulet poem format, designed for the Zora protocol.
+ * This schema describes version 20210228 of the metadata standard for the amulet poem format, designed for the Zora protocol.
  */
-export interface Amulet20210221 {
+export interface Amulet20210228 {
   /**
-   * An HTTPS link to the carbon offset purchased in this poem's name. This is not required in this metadata version, but if it is not specified in this field, it should be included in the `description` field.
+   * An HTTPS link to the carbon offset purchased in this poem's name.
    */
-  carbonOffsetURL?: {
+  carbonOffsetURL: {
     [k: string]: unknown;
   };
   /**
@@ -28,9 +28,9 @@ export interface Amulet20210221 {
    */
   name: string;
   /**
-   * The text of the amulet. You should include this if possible, but, in this metadata version, it's not formally required. The text at the contentURI in the Zora NFT is considered the canonical version.
+   * The text of the amulet. Although this is required, the text at the contentURI in the Zora NFT is considered the canonical version.
    */
-  poemText?: string;
+  poemText: string;
   /**
    * The rarity level of the amulet.
    */

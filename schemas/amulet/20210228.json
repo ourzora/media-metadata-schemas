@@ -1,11 +1,11 @@
 {
-    "description": "This schema describes version 20210221 of the metadata standard for the amulet poem format, designed for the Zora protocol.",
-    "title": "Amulet20210221",
+    "description": "This schema describes version 20210228 of the metadata standard for the amulet poem format, designed for the Zora protocol.",
+    "title": "Amulet20210228",
     "$id": "http://text.bargains/schema.json",
     "type": "object",
     "properties": {
         "carbonOffsetURL": {
-            "description": "An HTTPS link to the carbon offset purchased in this poem's name. This is not required in this metadata version, but if it is not specified in this field, it should be included in the `description` field.",
+            "description": "An HTTPS link to a record of the carbon offset purchased in this poem's name.",
             "examples": [
                 "https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736"
             ]
@@ -13,7 +13,7 @@
         "description": {
             "description": "The description of the amulet. You can feel free to have fun & be evocative with this; including a link to the current formal definition is probably wise, but not required.",
             "examples": [
-                "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is COMMON. Here is this poem's carbon offset: https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736"
+                "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is COMMON."
             ],
             "type": "string"
         },
@@ -33,7 +33,7 @@
             "type": "string"
         },
         "poemText": {
-            "description": "The text of the amulet. You should include this if possible, but, in this metadata version, it's not formally required. The text at the contentURI in the Zora NFT is considered the canonical version.",
+            "description": "The text of the amulet. Although this is required, the text at the contentURI in the Zora NFT is considered the canonical version.",
             "examples": [
                 "DON'T WORRY."
             ],
@@ -50,7 +50,7 @@
         "version": {
             "description": "The calendar version of the schema.",
             "examples": [
-                "amulet-20210221"
+                "amulet-20210228"
             ],
             "type": "string"
         }
@@ -58,18 +58,21 @@
     "additionalProperties": true,
     "examples": [
         {
-            "description": "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is COMMON. Here is this poem's carbon offset: https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736",
+            "carbonOffsetURL": "https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736",
+            "description": "This is an amulet, a short poem with a lucky SHA-256 hash, explained here: https://text.bargains/ This poem's rarity is COMMON.",
             "mimeType": "text/plain",
             "name": "morning amulet",
             "poemText": "DON'T WORRY.",
             "rarity": "common",
-            "version": "amulet-20210221"
+            "version": "amulet-20210228"
         }
     ],
     "required": [
+        "carbonOffsetURL",
         "description",
         "mimeType",
         "name",
+        "poemText",
         "rarity",
         "version"
     ]

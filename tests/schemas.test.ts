@@ -464,7 +464,52 @@ describe('schemas', () => {
         const result = validator.validate(json)
         expect(result).toBe(false)
       })
+    })
 
+    describe('20210228', () => {
+      it('requires all fields', () => {
+        const validator = new Validator('amulet-20210228')
+        const json = {
+          carbonOffset: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'text/plain',
+          name: 'a fine amulet',
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('cannot be assigned a random rarity', () => {
+        const validator = new Validator('amulet-20210228')
+        const json = {
+          version: 'amulet-20210228',
+          carbonOffset: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'text/plain',
+          name: 'a fine amulet',
+          poemText: 'DON\'T WORRY.',
+          rarity: 'hyperrare'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('must have a carbon offset', () => {
+        const validator = new Validator('amulet-20210228')
+        const json = {
+          version: 'amulet-20210228',
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'text/plain',
+          name: 'a fine amulet',
+          poemText: 'DON\'T WORRY.',
+          rarity: 'common'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
     })
   })
 
