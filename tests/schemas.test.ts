@@ -470,7 +470,7 @@ describe('schemas', () => {
       it('requires all fields', () => {
         const validator = new Validator('amulet-20210228')
         const json = {
-          carbonOffset: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
+          carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
           description: 'it is an amulet, what do you want from me!',
           mimeType: 'text/plain',
           name: 'a fine amulet',
@@ -484,7 +484,7 @@ describe('schemas', () => {
         const validator = new Validator('amulet-20210228')
         const json = {
           version: 'amulet-20210228',
-          carbonOffset: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
+          carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
           description: 'it is an amulet, what do you want from me!',
           mimeType: 'text/plain',
           name: 'a fine amulet',
@@ -502,6 +502,22 @@ describe('schemas', () => {
           version: 'amulet-20210228',
           description: 'it is an amulet, what do you want from me!',
           mimeType: 'text/plain',
+          name: 'a fine amulet',
+          poemText: 'DON\'T WORRY.',
+          rarity: 'common'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('must be of mimeType text/plain', () => {
+        const validator = new Validator('amulet-20210228')
+        const json = {
+          version: 'amulet-20210228',
+          carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
+          description: 'it is an amulet, what do you want from me!',
+          mimeType: 'image/jpeg',
           name: 'a fine amulet',
           poemText: 'DON\'T WORRY.',
           rarity: 'common'
