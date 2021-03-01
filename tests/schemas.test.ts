@@ -464,61 +464,15 @@ describe('schemas', () => {
         const result = validator.validate(json)
         expect(result).toBe(false)
       })
-    })
-
-    describe('20210228', () => {
-      it('requires all fields', () => {
-        const validator = new Validator('amulet-20210228')
-        const json = {
-          carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
-          description: 'it is an amulet, what do you want from me!',
-          mimeType: 'text/plain',
-          name: 'a fine amulet',
-        }
-
-        const result = validator.validate(json)
-        expect(result).toBe(false)
-      })
-
-      it('cannot be assigned a random rarity', () => {
-        const validator = new Validator('amulet-20210228')
-        const json = {
-          version: 'amulet-20210228',
-          carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
-          description: 'it is an amulet, what do you want from me!',
-          mimeType: 'text/plain',
-          name: 'a fine amulet',
-          poemText: 'DON\'T WORRY.',
-          rarity: 'hyperrare'
-        }
-
-        const result = validator.validate(json)
-        expect(result).toBe(false)
-      })
-
-      it('must have a carbon offset', () => {
-        const validator = new Validator('amulet-20210228')
-        const json = {
-          version: 'amulet-20210228',
-          description: 'it is an amulet, what do you want from me!',
-          mimeType: 'text/plain',
-          name: 'a fine amulet',
-          poemText: 'DON\'T WORRY.',
-          rarity: 'common'
-        }
-
-        const result = validator.validate(json)
-        expect(result).toBe(false)
-      })
 
       it('must be of mimeType text/plain', () => {
-        const validator = new Validator('amulet-20210228')
+        const validator = new Validator('amulet-20210221')
         const json = {
-          version: 'amulet-20210228',
+          version: 'amulet-20210101',
           carbonOffsetURL: 'https://dashboard.cloverly.com/receipt/20210223-9e38b918ecfd9bfb051287bf71556736',
-          description: 'it is an amulet, what do you want from me!',
+          description: 'it is a picture of an amulet',
           mimeType: 'image/jpeg',
-          name: 'a fine amulet',
+          name: 'pic of my amulet',
           poemText: 'DON\'T WORRY.',
           rarity: 'common'
         }
@@ -528,5 +482,4 @@ describe('schemas', () => {
       })
     })
   })
-
 })

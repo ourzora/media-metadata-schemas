@@ -49,9 +49,7 @@
         },
         "version": {
             "description": "The calendar version of the schema.",
-            "examples": [
-                "amulet-20210221"
-            ],
+            "const": "amulet-20210221",
             "type": "string"
         }
     },

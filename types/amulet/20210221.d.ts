@@ -38,6 +38,6 @@ export interface Amulet20210221 {
   /**
    * The calendar version of the schema.
    */
-  version: string;
+  version: "amulet-20210221";
   [k: string]: unknown;
 }
