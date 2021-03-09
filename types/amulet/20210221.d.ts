@@ -12,9 +12,7 @@ export interface Amulet20210221 {
   /**
    * An HTTPS link to the carbon offset purchased in this poem's name. This is not required in this metadata version, but if it is not specified in this field, it should be included in the `description` field.
    */
-  carbonOffsetURL?: {
-    [k: string]: unknown;
-  };
+  carbonOffsetURL?: string;
   /**
    * The description of the amulet. You can feel free to have fun & be evocative with this; including a link to the current formal definition is probably wise, but not required.
    */
