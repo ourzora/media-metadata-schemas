@@ -62,7 +62,7 @@ const parsed =  parser.parse(json)
 ## Define a New Schema
 
 To define a new schema version, locate the directory of your project's name in `schemas/`. If a directory does not already exist create one. 
-Within the project directory create a new file with the desired calendar version as the file name example: `schema/zora/20210101.json` 
+Within the project directory create a new file with the desired calendar version as the file name example: `schemas/zora/20210101.json` 
 
 * Define the schema according to JSON Schema specification.
 * Write some tests in the `schema.tests.ts` file.
