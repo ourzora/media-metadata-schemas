@@ -1,0 +1,96 @@
+{
+  "description": "This schema describes version 20210604 of the Zora Metadata Standard",
+  "title": "Zora20210604",
+  "$id": "https://zora.co/schemas/ZoraMetadata.json",
+  "$defs": {
+    "attribute": {
+      "type": "object",
+      "required": ["trait_type", "value"],
+      "properties": {
+        "trait_type": {
+          "type": "string",
+          "description": "The name of the trait"
+        },
+        "value": {
+          "type": ["string", "number", "boolean"],
+          "description": "The value of the trait"
+        },
+        "display_type": {
+          "type": "string",
+          "description": "A field indicating how the `value` data should be displayed. Defaults to 'string'"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "The description of the media",
+      "examples": [
+        "This paper describes protocol to create, share and exchange universally accessible and valuable information on the internet."
+      ],
+      "type": "string"
+    },
+    "mimeType": {
+      "description": "The mimeType of the media",
+      "examples": [
+        "text/plain"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "This property is the name of the Media",
+      "examples": [
+        "Zora Whitepaper"
+      ],
+      "type": "string"
+    },
+    "version": {
+      "description": "This property defines the calendar version of the schema so that consumers can correctly parse the json",
+      "examples": [
+        "zora-20210604"
+      ],
+      "type": "string"
+    },
+    "image": {
+      "description": "This property defines an optional preview image URL for the media",
+      "examples": [
+        "https://ipfs.io/ipfs/bafkreig4qxcms7msakiafuapwensj2lamszmdbbukqxxcpfesvgd2jzswa"
+      ],
+      "type": "string"
+    },
+    "external_url": {
+      "type": "string",
+      "description": "This property defines an optional external URL that can reference a webpage or external asset for the NFT",
+      "examples": [
+        "https://zora.co/zora/61"
+      ]
+    },
+    "animation_url": {
+      "type": "string",
+      "description": "A URL to a multi-media attachment for the item. The file extensions GLTF, GLB, WEBM, MP4, M4V, OGV, and OGG are supported, along with the audio-only extensions MP3, WAV, and OGA. Animation_url also supports HTML pages, allowing you to build rich experiences using JavaScript canvas, WebGL, and more. Access to browser extensions is not supported"
+    },
+    "attributes": {
+      "type": "array",
+      "description": "This property defines any additional attributes for the item",
+      "items": {
+        "$ref": "#/$defs/attribute"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "version": "zora-20210604",
+      "name": "Zora Whitepaper",
+      "description": "This paper describes protocol to create, share and exchange universally accessible and valuable information on the internet.",
+      "mimeType": "text/plain"
+    }
+  ],
+  "required": [
+    "version",
+    "name",
+    "description",
+    "mimeType"
+  ]
+}
