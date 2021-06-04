@@ -55,6 +55,76 @@ describe('schemas', () => {
         expect(result).toBe(true)
       })
     })
+    describe('20210604', () => {
+      it('requires all keys', () => {
+        const validator = new Validator('zora-20210604')
+        const json = {
+          description: 'blah',
+          mimeType: 'application/json',
+          name: 'who cares'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('does not allow additional properties', () => {
+        const validator = new Validator('zora-20210604')
+        const json = {
+          description: 'blah',
+          mimeType: 'application/json',
+          name: 'who cares',
+          version: 'zora-20210604',
+          someAdditionalProperty: 'okay'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('requires string values', () => {
+        const validator = new Validator('zora-20210604')
+        const json = {
+          description: 'blah',
+          mimeType: 'application/json',
+          name: 100,
+          version: 'zora-20210604'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(false)
+      })
+
+      it('validates a valid minimal schema', () => {
+        const validator = new Validator('zora-20210604')
+        const json = {
+          description: 'blah',
+          mimeType: 'application/json',
+          name: 'who cares',
+          version: 'zora-20210604'
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(true)
+      })
+
+      it('validates a valid full schema', () => {
+        const validator = new Validator('zora-20210604')
+        const json = {
+          description: 'blah',
+          mimeType: 'application/json',
+          name: 'who cares',
+          version: 'zora-20210604',
+          image: 'someURL',
+          external_url: 'zora.co',
+          animation_url: 'zora.co',
+          attributes: [{trait_type: 'color', value: 'blue'}, {trait_type: 'rank', value: 1, display_type: 'number'}, {trait_type: 'good?', value: true, display_type: 'boolean'}]
+        }
+
+        const result = validator.validate(json)
+        expect(result).toBe(true)
+      })
+    })
   })
   describe('catalog', () => {
     describe('20210202', () => {
