@@ -44,10 +44,10 @@ const validated = validator.validate(metadata)
 ```typescript
 const json = `
   {
-    version: 'zora-20210101',
-    name: randomName,
-    description: randomDescription,
-    mimeType: mimeType,
+    "version": "zora-20210101",
+    "name": "randomName",
+    "description": "randomDescription",
+    "mimeType": "mimeType"
   }
 `
 
