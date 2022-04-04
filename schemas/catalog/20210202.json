@@ -257,7 +257,7 @@
                 },
                 "signature": {
                     "type": "string",
-                    "description": "The result of the public key's corresponding private key signing the body of the record metadata. We sign the output of JSON.stringify(body), where body is the alphabetized and minified JSON object retrieved from the body key in the record's metadata.",
+                    "description": "The result of the public key's corresponding private key signing the body of the record metadata. We sign the EIP-191 prefixed and hashed output of JSON.stringify(body), where body is the alphabetized and minified JSON object retrieved from the body key in the record's metadata.",
                     "examples": ["0xd97ea5d9857f526537c3fed95eaedc22043fd530874beb41484902aa998cd36629b0fdd67fcceb6528f475aab018dc2994a9a5d06a2528aed0fdd0e68cfa4d781b"]
                 }
             },
